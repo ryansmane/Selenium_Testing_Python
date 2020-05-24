@@ -1,0 +1,1 @@
+Disclaimer: The chess bot does not play against actual players - only the level one computer engine. No login is required. 
