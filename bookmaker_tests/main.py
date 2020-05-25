@@ -20,7 +20,7 @@ class BookmakerDashboard(unittest.TestCase):
     def test_login_redirect(self):
         dashboard = page.Dashboard(self.driver)
         dashboard.go_to_login()
-        assert 'Email Address' in self.driver.page_source, 'Login not found on login page'
+        assert dashboard.email_field_present(), 'Login not found on login page'
 
 
     def tearDown(self):
@@ -40,7 +40,7 @@ class BookmakerLogin(unittest.TestCase):
         actions = ActionChains(self.driver)
         actions.pause(3)
         actions.perform()
-        assert "Literary Agencies" in self.driver.page_source, "No Redirect Occured"
+        assert login_page.agency_list_present(), "No Redirect Occured"
 
 
     def tearDown(self):

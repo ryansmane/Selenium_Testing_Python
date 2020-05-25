@@ -26,6 +26,9 @@ class Dashboard(BasePage):
     def go_to_login(self):
         login_button = self.driver.find_element(*DashboardLocators.LOGIN_BUTTON)
         login_button.click()
+    
+    def email_field_present(self):
+        return 'Email Address' in self.driver.page_source
 
 class LoginPage(BasePage):
     
@@ -36,4 +39,7 @@ class LoginPage(BasePage):
         login_button = self.driver.find_element(
             *LoginPageLocators.LOGIN_BUTTON)
         login_button.click()
+
+    def agency_list_present(self):
+        return "Literary Agencies" in self.driver.page_source
         
