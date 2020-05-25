@@ -26,7 +26,6 @@ class MainPage(BasePage):
     
     def input_field_appears(self):
         style = self.driver.find_element(*MainPageLocators.CREATE_BOX).get_attribute('style')
-        print(style)
         return 'block' in style
 
     def create_room_click(self):

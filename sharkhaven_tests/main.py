@@ -7,16 +7,18 @@ import page
 PATH = '/home/ryansmane/webdrivers/chromedriver'
 
 class SharkHavenCreateRoom(unittest.TestCase):
-    """A sample test class to show how page object works"""
 
     def setUp(self):
         self.driver = webdriver.Chrome(PATH)
         self.driver.get("https://ryansmane.github.io/war-client/")
+    
+    def test_title(self):
+        main_page = page.MainPage(self.driver)
+        assert main_page.is_title_matches(), "Sharkhaven not in title."
 
     def test_create_lobby_in_SharkHaven(self):
         NAME_TO_TEST = 'Test Room'
         main_page = page.MainPage(self.driver)
-        assert main_page.is_title_matches(), "Sharkhaven not in title."
         main_page.click_create_button()
         assert main_page.input_field_appears(), "Input field does not appear."
         main_page.room_name_input = NAME_TO_TEST
